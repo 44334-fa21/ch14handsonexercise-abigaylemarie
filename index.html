@@ -1,13 +1,73 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-	<head> 
-		<title>LASTNAME Chapter14HandsOnExercise</title> 
-		<meta charset="utf-8"> 
-		<style>
-		
-		</style>
-	</head> 
-<body> 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Rush Chapter14HandsOnExercise</title>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+	<style>
+input {display: block;
+				margin-bottom: 1em;
+}
+label {float: left;
+				width: 5em;
+				padding-right: 1em;
+				text-align: right;
+}
+#submit {margin-left: 7em;}
+#details {display: none;}
+	</style>
+	</head>
+	<body>
+		<h1>JavaScript Form Handling</h1>
+		<form method="post"
+					action="http://webdevbasics.net/scripts/demo.php"
+					onsubmit="return validateForm();">
+		<label for="userName">Name:</label>
+		<input type="text" name="userName" id="userName">
+		<label for="userAge">Age:</label>
+		<input type="text" name="userAge" id="userAge">
+		<label for="userCity">City:</label>
+		<input type="text" name="userCity" id="userCity">
+		<input type="sumbit" value="Send Information" id="submit">
+	</form>
 
-</body> 
-</html> 
+
+<div id="details">
+</div>
+<h1> Sports Slideshow</h1>
+	<div class="fotorama" data-autoplay="true">
+		<img src="TB1.jpg" data-caption="Toccerball One" alt="Toccerball One">
+		<img src="VB1.jpg" data-caption="Volleyball One" alt="Volleyball One">
+		<img src="WS1.jpg" data-caption="Water Slide One" alt="Water SLide One">
+		<img src="TB2.jpg" data-caption="Toccerball Two" alt="Toccerball Two">
+		<img src="VB2.jpg" data-caption="Volleyball Two" alt="Volleyball Two">
+		<img src="WS2.jpg" data-caption="Water Slide Two" alt="Water SLide Two">
+	</div>
+
+	<script>
+	function validateForm() {
+		if(document.forms[0].userName.value == "") {
+			alert("Name field cannot be empty");
+			return false;
+		}
+		if(document.forms[0].userAge.value <18 || document.forms[0].userAge.value > 100){
+			alert("Age is less than 18. You do not have access.");
+			return false;
+		}
+		alert("Name and age are valid.");
+		return true;
+	}
+		$(document).ready(function(){
+			$('#more').click(function(){
+				$('#details').toggle();
+			});
+		});
+
+
+		</script>
+
+
+	</body>
+	</html>
